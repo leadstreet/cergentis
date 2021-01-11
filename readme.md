@@ -26,6 +26,6 @@ To improve the rendering in the server side, you can wrap your CSS and JS tags w
 ```
 and
 ```
-{% require_js %}<script></script>{% end_require_js %}
+{% require_js %}<script> ... </script>{% end_require_js %}
 ```
  You can add `position="footer"` to `{% require_js %}` for the JS you want to load in the footer: `{% require_js position="footer" %}`
