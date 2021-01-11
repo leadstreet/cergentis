@@ -12,6 +12,6 @@ jobs:
         uses: HubSpot/hubspot-cms-deploy-action@v.1.1
         with:
           src_dir: src
-          dest_dir: /popular-theme-for-cergentis/templates/partials/
+          dest_dir: /popular-theme-for-cergentis/
           portal_id: ${{ secrets.HubspotPortalId }}
           personal_access_key: ${{ secrets.GitAccessKey }}
