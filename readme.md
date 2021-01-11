@@ -12,6 +12,20 @@ Because Hubspot uses HubL language (similar to Jinja2), you will need to replace
   label: Page Header
 -->
 ```
-* Replacing the label for the footer with `Page Footer`.
+OR
+```
+<!--
+  templateType: global_partial
+  label: Page Footer
+-->
+```
 
-To improve the rendering in the server side, you can wrap your CSS and JS tags with `{% require_css %}<style> ... </style>{% end_require_css %}` and `{% require_js %}<script></script>{% end_require_js %}`. You can add `position="footer"` to `{% require_js %}` for the JS you want to load in the footer: `{% require_js position="footer" %}`
+To improve the rendering in the server side, you can wrap your CSS and JS tags with 
+```
+{% require_css %}<style> ... </style>{% end_require_css %}
+```
+and
+```
+{% require_js %}<script></script>{% end_require_js %}
+```
+ You can add `position="footer"` to `{% require_js %}` for the JS you want to load in the footer: `{% require_js position="footer" %}`
