@@ -1,0 +1,92 @@
+<!--
+  templateType: global_partial
+  label: Page Header
+-->
+<header id="header" class="header">  
+    {#% if theme.header.top_header.activate_top_header %}
+    <div class="top-navigation">
+        <div class="header__container {{theme.header.spacing_options.content_width_options}}">
+            <div class="header__navigation header--element">
+                {% module "top-navigation" 
+                path="../../modules/Menu section", 
+                label="Top Navigation" %}
+            </div>
+        </div>
+    </div>
+    {% endif %#}
+
+    <div class="main-navigation">
+        <div class="header__container {{theme.header.spacing_options.content_width_options}}">
+            <div class="header__logo header__logo--main">
+            {% module "site_logo" path="@hubspot/logo", label="Logo" %}
+            {#<span class="header-open-logo">{% module "site_logo_transparent" path="@hubspot/logo", label="Logo Menu Open" %}</span>#}
+            </div>
+            <div class="header__column header-flex-wrapper">
+              {% if theme.header.top_header.activate_top_header %}
+              <div class="header__navigation header-top-navigation header--element">
+                  {% module "top-navigation" 
+                  path="../../modules/Menu section", 
+                  label="Top Navigation" %}
+              </div>
+              {% endif %}
+              {% if theme.header.style_options.add_cta %}
+                <div class="header__cta--wrapper">
+                {% module "header-cta" path="../../modules/Header CTA", label="Header CTA" %}
+                </div>
+                {% endif %}
+               {% if theme.header.style_options.show_search %}
+                  <div class="header__search-parent header__search--toggle">
+                      <span class="header__search-icon--toggle">
+                          <svg width="20" height="20" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-2x"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class=""></path></svg>
+                      </span>
+                      <div class="header__search header--element">
+                      <div class="triangle-container level-2"><div class="triangle level-2"></div></div>
+                      {% module "site_search" path="@hubspot/search_input", label="Search", placeholder="Search...", include_search_button=true %}
+                      </div>
+                  </div>
+                  {% endif %}
+              <div class="header__mobile_buttons">
+                  <div class="header__navigation--toggle">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+              </div>
+              <div class="header__row-1 header__navigation__mobile_group">
+
+                  <div class="header__navigation header--element">
+                  {% module "navigation-primary-id" path="../../modules/Menu section", label="Header Navigation" %}
+                  {% if theme.header.top_header.activate_top_header %}
+                      <div class="top-navigation-mobile">
+                          {% module "top-navigation" 
+                              path="../../modules/Menu section", 
+                              label="Top Navigation" %}
+                      </div>
+                  {% endif %}
+                  </div>
+                 
+                  {% if theme.header.style_options.add_cta %}
+                  <div class="header__cta--wrapper">
+                  {% module "header-cta" path="../../modules/Header CTA", label="Header CTA" %}
+                  </div>
+                  {% endif %}
+                  {% if content.translated_content|length or is_listing_view %}
+                  {% module "lang_switcher_custom" path="../../modules/LS Language Switcher Global", label="LS Language Switcher" %}
+                  {% endif %}
+                  {#% if content.translated_content|length %}
+                  <div class="header--toggle header__language-switcher--toggle">
+                      <span class="header__language-switcher-icon--toggle"></span>
+                      <div class="header__language-switcher header--element">
+                          <div class="header__language-switcher--label">
+                              {% module "language-switcher" path="@hubspot/language_switcher", display_mode='localized', label="Language Switcher" %}
+                              <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
+                          </div>
+                      </div>
+                  </div>
+                  {% endif %#}
+              </div>
+            </div>
+        </div>
+    </div>
+</header>
